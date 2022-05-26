@@ -1,4 +1,4 @@
-# MultiMedia
+# MultiMedia directory
 |-- build
 |--|-- set_env.sh
 |--|-- build_base.sh
@@ -8,3 +8,13 @@
 |--project
 |--output
 |--toochain
+
+
+
+# additional tools
+- autoconf
+- automake
+- libtool
+ ```
+ sudo apt-get install automake autoconf libtool
+ ```
