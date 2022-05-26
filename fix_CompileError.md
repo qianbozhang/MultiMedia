@@ -7,3 +7,6 @@ FIX: sudo apt install bison
 
 ## gstreamer-1.0: configure: error: Could not find flex
 FIX: sudo apt install flex
+
+## libav: nasm/yasm not found or too old. Use --disable-x86asm for a crippled build.
+FIX: sudo apt install yasm
