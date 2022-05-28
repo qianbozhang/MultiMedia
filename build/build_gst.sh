@@ -71,6 +71,7 @@ cd $BUILD_TEMP/gst-plugins-good-1.16.0
 if [ ! -f "build_ok" ]; then
     echo ">>>>>>>>>>>>>>>>>>>>>>>>>>> build gst-plugins-good-1.16.0 >>>>>>>>>>>>>>>>>>>>>>>";
     CC=$CC $GST_DIR/gst-plugins-good-1.16.0/configure --prefix=$INSTALL_DIR \
+        --disable-gst_v4l2 \
         --disable-rpath LIBS="-L$INSTALL_DIR/lib -lffi" \
         --with-pkg-config-path="$INSTALL_DIR/lib/pkgconfig" \
         CFLAGS="-fPIC -I$INSTALL_DIR/include" LDFLAGS="-Wl,-rpath-link=$INSTALL_DIR/lib"
