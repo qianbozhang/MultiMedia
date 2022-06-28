@@ -77,4 +77,23 @@ else
     echo "glib-2.48.0 has been compiled.";
 fi;
 
+#aom
+mkdir -p $BUILD_TEMP/libaom.3.4.0
+cd $BUILD_TEMP/libaom.3.4.0
+if [ ! -f "build_ok" ]; then
+    echo ">>>>>>>>>>>>>>>>>>>>>>>>>>> build libaom.3.4.0 >>>>>>>>>>>>>>>>>>>>>>>";
+    CC=$CC cmake $BASE_DIR/libaom.3.4.0 -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR  \
+        -DBUILD_SHARED_LIBS=1 -DENABLE_EXAMPLES=0 -DENABLE_TESTS=0 -DENABLE_TOOLS=0 -DCONFIG_ANALYZER=0 -DCONFIG_INSPECTION=0
+    make -j 8 && make install
+    if [ $? -eq 0 ]; then
+        touch build_ok;
+        echo "libaom.3.4.0 compiled successfully, please delete \"build_ok\" file in $BUILD_TEMP/libaom.3.4.0 if you wanted rebuild.";
+    else
+        echo "libaom.3.4.0 compiled fail, please fixed error and retry.";
+        exit 0;
+    fi;
+else
+    echo "libaom.3.4.0 has been compiled.";
+fi;
+
 
